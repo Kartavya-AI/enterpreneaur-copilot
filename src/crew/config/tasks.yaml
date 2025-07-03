@@ -1,0 +1,87 @@
+business_plan_task:
+  description: >
+    Analyze the provided startup idea, target market, and team composition to create a comprehensive business plan.
+    
+    Startup Idea: {startup_idea}
+    Target Market: {target_market}
+    Team Composition: {team_composition}
+    
+    Your analysis should include:
+    1. Executive Summary with clear value proposition
+    2. Market Analysis including market size, trends, and competitive landscape
+    3. Business Model with revenue streams and cost structure
+    4. SWOT Analysis (Strengths, Weaknesses, Opportunities, Threats)
+    5. Financial Projections for the first 3 years
+    6. Risk Assessment and mitigation strategies
+    7. Funding requirements and potential sources
+    8. Implementation timeline with key milestones
+    
+    Provide actionable insights and recommendations based on industry best practices.
+  expected_output: >
+    A detailed business plan document (2000-3000 words) with clear sections, 
+    financial projections, market analysis, and strategic recommendations. 
+    Include specific action items and success metrics.
+  agent: business_strategy_agent
+
+mvp_plan_task:
+  description: >
+    Based on the startup idea and business context, design a lean MVP strategy that validates 
+    core assumptions with minimal time and resources.
+    
+    Startup Idea: {startup_idea}
+    Target Market: {target_market}
+    Team Composition: {team_composition}
+    
+    Your MVP plan should include:
+    1. Core Problem Statement and Target Customer Persona
+    2. Key Assumptions to Validate
+    3. Essential Features (must-have vs nice-to-have)
+    4. Success Metrics and KPIs
+    5. Development Timeline and Resource Requirements
+    6. Testing and Validation Strategy
+    7. Feedback Collection Methods
+    8. Iteration Plan based on user feedback
+    9. Technology Stack Recommendations
+    10. Budget Estimation for MVP development
+    
+    Focus on creating a product that can be built quickly while providing maximum learning.
+  expected_output: >
+    A comprehensive MVP development plan (1500-2000 words) with feature prioritization, 
+    development timeline, success metrics, validation methods, and detailed implementation 
+    roadmap with resource requirements.
+  agent: mvp_development_agent
+  context:
+    - business_plan_task
+
+gtm_strategy_task:
+  description: >
+    Develop a comprehensive go-to-market strategy that ensures successful product launch 
+    and sustainable growth.
+    
+    Startup Idea: {startup_idea}
+    Target Market: {target_market}
+    Team Composition: {team_composition}
+    
+    Your GTM strategy should include:
+    1. Target Customer Segmentation and Personas
+    2. Value Proposition and Messaging Framework
+    3. Pricing Strategy and Revenue Model
+    4. Distribution Channels and Partnerships
+    5. Marketing Mix (4Ps: Product, Price, Place, Promotion)
+    6. Customer Acquisition Strategy
+    7. Sales Process and Funnel Design
+    8. Content Marketing and Brand Strategy
+    9. Launch Timeline and Campaign Planning
+    10. Success Metrics and Growth KPIs
+    11. Budget Allocation for Marketing Activities
+    12. Competitive Positioning Strategy
+    
+    Ensure the strategy is practical, measurable, and aligned with available resources.
+  expected_output: >
+    A detailed go-to-market strategy document (2000-2500 words) with customer acquisition 
+    plans, marketing campaigns, pricing strategies, distribution channels, launch timeline, 
+    and measurable growth tactics with budget considerations.
+  agent: gtm_strategy_agent
+  context:
+    - business_plan_task
+    - mvp_plan_task
