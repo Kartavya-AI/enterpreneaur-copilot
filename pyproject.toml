@@ -10,4 +10,5 @@ dependencies = [
     "langchain-community>=0.0.29",
     "streamlit>=1.32.0",
     "python-dotenv>=1.0.0",
+    "pysqlite3-binary == 0.5.4",
 ]
