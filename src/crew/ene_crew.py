@@ -8,13 +8,16 @@ from src.crew.tools.websearch import web_search_tool
 
 # Load environment variables
 load_dotenv()
-os.getenv("GEMINI_API_KEY")
 
 @CrewBase
 class EntrepreneurshipCrew:
     """Entrepreneurship Copilot Crew for generating business plans, MVP plans, and GTM strategies."""
     
     def __init__(self):
+        # Check for API key when crew is initialized
+        if not os.getenv("GEMINI_API_KEY"):
+            raise ValueError("GEMINI_API_KEY is not set. Please set your Google API key before generating plans.")
+        print(os.getenv("GEMINI_API_KEY"))
         # Initialize Gemini LLM
         self.llm = LLM(
             model="gemini/gemini-2.0-flash",
