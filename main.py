@@ -25,7 +25,7 @@ class CrewInput(BaseModel):
 # Load crew on startup
 crew_instance = EntrepreneurshipCrew()
 
-@app.post("/run-crew/")
+@app.post("/run-crew")
 async def run_crew(input_data: CrewInput):
     try:
         print("🚀 Running Entrepreneurship Crew...")
